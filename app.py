@@ -43,7 +43,7 @@ input_df = pd.DataFrame([{
 # === Predict ===
 if st.button("Predict Price"):
     try:
-        log_price = model.predict(input_df)[0]
+        log_price = pipeline.predict(input_df)[0]
         price = np.expm1(log_price)  # Inverse of log1p
         st.success(f"💰 Predicted Laptop Price: ₹{price:,.0f}")
     except Exception as e:
